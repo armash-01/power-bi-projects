@@ -1,0 +1,106 @@
+# Personal Finance Dashboard — Power BI
+
+This project is a Personal Finance Dashboard built in Power BI to track income, expenses, savings, and net worth over time.
+
+---
+
+## 📊 Dataset
+
+**Table:** `FinData`
+
+**Columns**
+
+- Type (Income, Expense, Savings)
+- Component (Salary, Rent, Groceries, Mutual Funds, etc.)
+- Date
+- Value
+
+Dataset recreated based on a YouTube project for learning and practice.
+
+---
+
+## ⚙️ Data Cleaning (Power Query)
+
+- Loaded the data
+- Fixed column headers
+- Set correct data types
+- Checked missing values
+- Ensured the Date column is continuous
+
+---
+
+## 🧮 DAX Measures
+
+### Total Income
+
+total income =
+CALCULATE(SUM(FinData[Value]), FinData[Type] = "Income")
+
+Total Expense
+
+total expense =
+CALCULATE(SUM(FinData[Value]), FinData[Type] = "Expense")
+
+Total Savings
+
+total savings =
+CALCULATE(SUM(FinData[Value]), FinData[Type] = "Savings")
+
+Expense %
+
+Expense % =
+DIVIDE([total expense], [total income])
+
+Savings %
+
+Savings % =
+DIVIDE([total savings], [total income])
+
+Income Last Month
+
+Income LM =
+CALCULATE([total income], DATEADD(FinData[Date], -1, MONTH))
+
+Income Change MoM
+
+Income Change MoM =
+DIVIDE([total income] - [Income LM], [Income LM])
+📈 Dashboard Features
+.KPI cards (Income, Expense, Savings, Net Worth)
+
+.Expense breakdown bar chart
+
+.Savings breakdown bar chart
+
+.Month-over-Month income trend
+
+.Year/Month slicer
+
+.Tooltip trend exploration
+
+🎯 Insights
+.Understand where money is spent
+
+.Track savings performance
+
+.Monitor income growth trends
+
+.Improve overall financial planning
+
+🚀 Tools Used
+.Power BI
+
+.Power Query
+
+.DAX
+
+📌 Objective
+This project helped me practice:
+
+.data modeling
+
+.DAX calculations
+
+.dashboard design
+
+.storytelling with data
